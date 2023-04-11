@@ -4,54 +4,69 @@ import { Link } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
 import logo from './logo.jpg';
 import ReactCurvedText from "react-curved-text";
+import axios from 'axios';
+import './maindash';
+
+
+const baseURL='http://localhost:8000'
 
 function SignUpPage() {
-  const [username, setUsername] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  //const history = useHistory();
+  const [confirmPassword, setConfirmPassword] = useState('');
+
   const navigate = useNavigate();
 
-function handleSubmit(event) {
+  function handleSubmit(event) {
     event.preventDefault();
-    // handle form submission here
-    //navigate('/login');
-} 
 
-return (
-  <div className='signup'>
-    <form onSubmit={handleSubmit}>
-      <ReactCurvedText className="heding" width={370} height={60} cx={270} cy={110} rx={100} ry={100} startOffset={100} reversed={true} text="Welcome to TaskMate" />
-      {/* <h2> Welcome to TaskMate </h2> */}
-      <img src={logo} alt="Logo" className="logo" />
+    if (password !== confirmPassword) {
+      alert('Passwords do not match.');
+      return;
+    }
 
-      <label>
-        Username:
-        <input type="text" value={username} onChange={e => setUsername(e.target.value)} style={{ width: '300px' }} required/>
-      </label>
-      <br />
-      <label>
-        Email:
-        <input type="email" value={email} onChange={e => setEmail(e.target.value)} style={{ width: '300px' }} required/>
-      </label>
-      <br />
-      <label>
-        Password:
-        <input type="password" value={password} onChange={e => setPassword(e.target.value)} style={{ width: '300px' }} required/>
-      </label>
-      <br />
-      <button type="submit">Sign up</button>
-      <p>Already have an account?</p>
-      {/* <Link to="/login">Login here please </Link> */}
-      {/* <NavLink to="/login">Login here please </NavLink> */}
-      {/* <a href="#" onClick={() => history.push('/login')}>Login here please</a> */}
-      <Link onClick={() => navigate('/login')} to="/login">Login here please</Link>
-      
-    </form>
+    axios.post(`${baseURL}/customers/`, {
+      email,
+      password
+    }).then(response => {
+      console.log(response.data);
+      navigate('./maindash');
+    }).catch(error => {
+      console.error(error);
+      if (error.response.status === 409) {
+        alert('Email is already taken.');
+      }
+    });
+  }
 
-  </div>
+  return (
+    <div className='signup'>
+      <div className='signup-form'>
+        <form onSubmit={handleSubmit}>
+          <ReactCurvedText className="heding" width={370} height={60} cx={270} cy={110} rx={100} ry={100} startOffset={100} reversed={true} text="Welcome to TaskMate" />
+          <img src={logo} alt="Logo" className="logo" />
 
-)
+          <label className='labe'>
+            Email:
+            <input type="email" value={email} onChange={e => setEmail(e.target.value)} style={{ width: '300px' }} required/>
+          </label>
+          <br />
+          <label className='labe'>
+            Password:
+            <input type="password" value={password} onChange={e => setPassword(e.target.value)} style={{ width: '300px' }} required/>
+          </label>
+          <br />
+          <label className='labe'>
+            Confirm Password:
+            <input type="password" value={confirmPassword} onChange={e => setConfirmPassword(e.target.value)} style={{ width: '300px' }} required/>
+          </label>
+          <br />
+          <button type="submit" className='signup-button'>Sign up</button>
+          <p>Already have an account?</p>
+          <Link onClick={() => navigate('/login')} to="/login">Login here please</Link>
+        </form>
+      </div>
+    </div>
+  );
 }
 export {SignUpPage}
-

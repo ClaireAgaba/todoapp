@@ -98,5 +98,176 @@ img{
     box-shadow: 0 0 .25rem rgba(0, 0, 0, 0.5), -.125rem -.125rem 1rem rgba(239, 71, 101, 0.5), .125rem .125rem 1rem rgba(255, 154, 90, 0.5);
 }  
 
+/* signupcss */
+.signup{
+    height: 100vh;
+    background: linear-gradient(to bottom, #7d46bd, #ffffff);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-family: montserrat;
+
+}
+.signup-form {
+    background-color: rgb(253, 172, 236);
+    border-radius: 4px;
+    padding: 10px;
+    max-width: 600px;
+    display: flex;
+    flex-direction: column;
+}  
+.heding{
+    text-align: center;
+    position:relative;
+    display:inline-block;
+    margin:0 auto;
+    font-family: 'Times New Roman';
+    font-size: 50px;
+}
+    
+.signup-input {
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+}
+
+.labe{
+    display: inline-block;
+      
+}
+  
+.signup-button[type="submit"] {
+    background-color: #df50c2;
+    color: #fff;
+    padding: 5px;
+    font-size: 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    width: 100px;
+}
+    
+.signup-button[type="submit"]:hover {
+    background-color: #5c0756;
+}
+.signup-form label {
+    display: inline-block;
+    width: 100px;
+    text-align: right;
+    margin-right: 10px;
+}
+.signup-form h2{
+    font-family: italic;
+    transform: skewX(-20deg);
+}
+.logo {
+    display: block;
+    margin: 0 auto;
+    width: 100px;
+    height: auto;
+    margin-top: 20px;
+}
+
+/* logincss */
+@import url('https://fonts.googleapis.com/css2?family=Delicious+Handrawn&display=swap');
+
+.login {
+    height: 100vh;
+    background: linear-gradient(to bottom, #7d46bd, #ffffff);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-family: montserrat;
+  }
+  
+ h1 {
+    color: #ffffff;
+    font-family: blacksword;
+    letter-spacing: 1px;
+}
+  
+  .login-section {
+    background-color: #7d46bd;
+    padding-top: 2rem;
+    padding-left: 6rem;
+    padding-right: 6rem;
+    padding-top: 2rem;
+    border-radius: 1rem;
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
+    text-align: center;
+    color: #ffffff;
+  }
+  
+  .login-section h2 {
+    margin-bottom: 2rem;
+  }
+  
+  .login-section form {
+    display: flex;
+    flex-direction: column;
+    flex:start;
+    background-color: #7d46bd;
+  }
+  
+  .login-section label {
+    margin-bottom: 0.5rem;
+  }
+  
+  .login-section input {
+    padding: 0.5rem;
+    margin-bottom: 1rem;
+    border-radius: 0.5rem;
+    border: none;
+  }
+  
+  .login-section a {
+    color: #ffffff;
+    text-decoration: none;
+    margin-top: 1rem;
+  }
+  
+  .login-section a:hover {
+    text-decoration: underline;
+  }
+  
+  .login-button {
+    background-color: #ffffff;
+    color: #7d46bd;
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
+    border: none;
+    margin-top: 1rem;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+  }
+  
+  .login-button:hover {
+    background-color: #7d46bd;
+    color: #ffffff;
+  }
+  
+  .small-info {
+    margin-top: 2rem;
+    font-size: 0.8rem;
+    text-align: center;
+    color: #ffffff;
+    padding-top: 0.2rem;
+    padding: 1.5rem;
+  }
+  
+  .small-info a {
+    color: #ffffff;
+    text-decoration: none;
+    
+  }
+  
+  .small-info a:hover {
+    text-decoration: underline;
+  }
+  
+
 
 

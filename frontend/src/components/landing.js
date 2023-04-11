@@ -7,7 +7,7 @@ function LandingPage() {
   return (
     <div className='container'>
       <div className='card'>
-        <img src={main}/>
+        <img src={main} alt='mainpic'/>
         <div className='title'>
           <h2> <b> Manage your tasks efficiently </b></h2>
           <div className='btn'>
